@@ -1,0 +1,21 @@
+graph LR
+    classDef node fill:#f9f,stroke:#333,stroke-width:4px;
+    classDef component fill:#ccf,stroke:#333,stroke-width:4px;
+
+    node(Event Organizer's Server) as server
+    node(Database Server) as db_server
+    node(Load Balancer) as lb
+    node(Web Server 1) as ws1
+    node(Web Server 2) as ws2
+    node(Mobile App) as mobile_app
+    node(User's Device) as user_device
+
+    linkStyle default stroke:#333,stroke-width:2px;
+
+    server --> lb
+    lb --> ws1
+    lb --> ws2
+    ws1 --> db_server
+    ws2 --> db_server
+    mobile_app --> lb
+    user_device --> mobile_app
